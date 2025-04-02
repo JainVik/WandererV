@@ -1,0 +1,75 @@
+<nav class="navbar navbar-expand-md bg-body-light sticky-top">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="/listings">
+            <i class="fa-regular fa-compass"></i>
+        </a>
+  
+        <!-- Toggler Button (Only visible on small screens) -->
+        <button class="navbar-toggler d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#navbarOffcanvas"
+          aria-controls="navbarOffcanvas" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+  
+        <!-- Normal Navbar (Visible on medium and larger screens) -->
+        <div class="collapse navbar-collapse d-none d-md-flex" id="navbarNavAltMarkup">
+            <div class="navbar-nav">
+                <a class="nav-link" href="/listings">
+                    <div><span>Explore</span></div>
+                </a>
+            </div>
+  
+            <div class="navbar-nav ms-auto">
+                <a class="nav-link" href="/listings/new">
+                    <div class="icon-container">
+                        <i class="fa-solid fa-house"></i>
+                        <span>Add Wander</span>
+                    </div>
+                </a>
+                <% if(!currUser) { %> 
+                    <a class="nav-link" href="/signup">
+                        <div class="icon-container">
+                            <i class="fa-solid fa-user-plus"></i>
+                            <span><b>SignUp</b></span>
+                        </div>
+                    </a>
+                    <a class="nav-link" href="/login">
+                        <div class="icon-container">
+                            <i class="fa-solid fa-sign-in-alt"></i>
+                            <span><b>Log in</b></span>
+                        </div>
+                    </a>
+                <% } %>   
+                <% if(currUser) { %>
+                    <a class="nav-link" href="/logout">
+                        <div class="icon-container">
+                            <i class="fa-solid fa-sign-out-alt"></i>
+                            <span><b>Logout</b></span>
+                        </div>
+                    </a>
+                <% } %>
+            </div>
+        </div>
+    </div>
+  </nav>
+  
+  <!-- Offcanvas Sidebar for Small Screens -->
+  <div class="offcanvas offcanvas-end d-md-none" tabindex="-1" id="navbarOffcanvas" aria-labelledby="navbarOffcanvasLabel">
+    <div class="offcanvas-header">
+      <h5 class="offcanvas-title" id="navbarOffcanvasLabel">Menu</h5>
+      <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+    </div>
+    <div class="offcanvas-body">
+      <div class="navbar-nav">
+          <a class="nav-link" href="/listings">Explore</a>
+          <a class="nav-link" href="/listings/new">Add Wander</a>
+  
+          <% if (!currUser) { %>
+            <a class="nav-link" href="/signup">SignUp</a>
+            <a class="nav-link" href="/login">Log in</a>
+          <% } else { %>
+            <a class="nav-link" href="/logout">Logout</a>
+          <% } %>
+      </div>
+    </div>
+  </div>
+  
